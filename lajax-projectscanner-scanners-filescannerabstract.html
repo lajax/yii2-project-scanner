@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="language" content="en" />
+        <link href="./assets/8905292d/css/bootstrap.css" rel="stylesheet">
+<link href="./assets/ee1b70d5/solarized_light.css" rel="stylesheet">
+<link href="./assets/8860eaa1/style.css" rel="stylesheet">
+<script src="./assets/8eafc515/jquery.js"></script>
+<script src="./assets/8905292d/js/bootstrap.js"></script>
+<script src="./assets/45c5478e/jssearch.js"></script>    <title>FileScannerAbstract, lajax\projectscanner\scanners\FileScannerAbstract - Yii Framework 2.0 API Documentation</title>
+</head>
+<body>
+
+<div class="wrap">
+    <nav id="w10" class="navbar-inverse navbar-fixed-top navbar" role="navigation"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#w10-collapse"><span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span></button><a class="navbar-brand" href="./index.html">Yii Framework 2.0 API Documentation</a></div><div id="w10-collapse" class="collapse navbar-collapse"><ul id="w11" class="navbar-nav nav"><li><a href="./index.html">Class reference</a></li></ul><div class="navbar-form navbar-left" role="search">
+  <div class="form-group">
+    <input id="searchbox" type="text" class="form-control" placeholder="Search">
+  </div>
+</div>
+</div></nav>
+    <div id="search-resultbox" style="display: none;" class="modal-content">
+        <ul id="search-results">
+        </ul>
+    </div>
+
+    
+<div class="row">
+    <div class="col-md-3">
+                <div id="navigation" class="list-group"><a class="list-group-item" href="#navigation-8" data-toggle="collapse" data-parent="#navigation">lajax\projectscanner <b class="caret"></b></a><div id="navigation-8" class="submenu panel-collapse collapse"><a class="list-group-item" href="./lajax-projectscanner-consoleoutputtrait.html">ConsoleOutputTrait</a>
+<a class="list-group-item" href="./lajax-projectscanner-scanresult.html">ScanResult</a>
+<a class="list-group-item" href="./lajax-projectscanner-scanner.html">Scanner</a></div>
+<a class="list-group-item active" href="#navigation-9" data-toggle="collapse" data-parent="#navigation">lajax\projectscanner\scanners <b class="caret"></b></a><div id="navigation-9" class="submenu panel-collapse collapse in"><a class="list-group-item" href="./lajax-projectscanner-scanners-dbscanner.html">DbScanner</a>
+<a class="list-group-item active" href="./lajax-projectscanner-scanners-filescannerabstract.html">FileScannerAbstract</a>
+<a class="list-group-item" href="./lajax-projectscanner-scanners-jsscanner.html">JsScanner</a>
+<a class="list-group-item" href="./lajax-projectscanner-scanners-phparrayscanner.html">PhpArrayScanner</a>
+<a class="list-group-item" href="./lajax-projectscanner-scanners-phpfunctionscanner.html">PhpFunctionScanner</a>
+<a class="list-group-item" href="./lajax-projectscanner-scanners-scannerinterface.html">ScannerInterface</a></div></div>    </div>
+    <div class="col-md-9 api-content" role="main">
+        <h1>Abstract Class lajax\projectscanner\scanners\FileScannerAbstract</h1>
+<div class="top-nav">
+    <a href="index.html">All Classes</a>
+            | <a href="#properties">Properties</a>
+                | <a href="#methods">Methods</a>
+            </div>
+
+<table class="summaryTable docClass table table-bordered">
+    <colgroup>
+        <col class="col-name" />
+        <col class="col-value" />
+    </colgroup>
+            <tr><th>Inheritance</th><td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a> &raquo;
+yii\base\Object</td></tr>
+                            <tr><th>Subclasses</th><td><a href="lajax-projectscanner-scanners-jsscanner.html">lajax\projectscanner\scanners\JsScanner</a>, <a href="lajax-projectscanner-scanners-phparrayscanner.html">lajax\projectscanner\scanners\PhpArrayScanner</a>, <a href="lajax-projectscanner-scanners-phpfunctionscanner.html">lajax\projectscanner\scanners\PhpFunctionScanner</a></td></tr>
+                        <tr><th>Available since version</th><td>1.0</td></tr>
+            </table>
+
+<div class="class-description">
+    <p><strong>Class for processing PHP and JavaScript files.</strong></p>
+    <p>Language elements detected in JavaScript files:</p>
+<pre><code class="hljs bash">lajax.t(<span class="hljs-string">'language element'</span>);
+lajax.t(<span class="hljs-string">'language element {replace}'</span>, {replace:<span class="hljs-string">'String'</span>});
+lajax.t(<span class="hljs-string">'language element'</span>);
+lajax.t(<span class="hljs-string">'language element {replace}'</span>, {replace:<span class="hljs-string">'String'</span>});
+</code></pre>
+<p>Language elements detected in PHP files:
+"t" functions:</p>
+<pre><code class="hljs less"><span class="hljs-pseudo">::t</span>(<span class="hljs-string">'category of language element'</span>, <span class="hljs-string">'language element'</span>);
+<span class="hljs-pseudo">::t</span>(<span class="hljs-string">'category of language element'</span>, <span class="hljs-string">'language element {replace}'</span>, [<span class="hljs-string">'replace'</span> =&gt; <span class="hljs-string">'String'</span>]);
+<span class="hljs-pseudo">::t</span>(<span class="hljs-string">'category of language element'</span>, <span class="hljs-string">'language element'</span>);
+<span class="hljs-pseudo">::t</span>(<span class="hljs-string">'category of language element'</span>, <span class="hljs-string">'language element {replace}'</span>, [<span class="hljs-string">'replace'</span> =&gt; <span class="hljs-string">'String'</span>]);
+</code></pre>
+<p>Language elements detected in constant arrays:</p>
+<pre><code class="hljs bash"> /**
+  * @translate
+  */
+ private <span class="hljs-variable">$_GENDERS</span> = [<span class="hljs-string">'Male'</span>, <span class="hljs-string">'Female'</span>];
+ /**
+  * @translate
+  */
+  private <span class="hljs-variable">$_STATUSES</span> = [
+     self::STATUS_ACTIVE =&gt; <span class="hljs-string">'Active'</span>,
+     self::STATUS_INACTIVE =&gt; <span class="hljs-string">'Inactive'</span>
+  ];
+</code></pre>
+<p>Translation of constant arrays:
+Translation to site language:</p>
+<pre><code class="hljs php"><span class="hljs-variable">$genders</span> = \lajax\translatemanager\helpers\Language::a(<span class="hljs-variable">$this</span>-&gt;_GENDERS);
+</code></pre>
+<p>Translating to the language of your coice:</p>
+<pre><code class="hljs php"><span class="hljs-variable">$statuses</span> = \lajax\translatemanager\helpers\Language::a(<span class="hljs-variable">$this</span>-&gt;_STATUSES, [], <span class="hljs-string">'de-DE'</span>);
+</code></pre>
+
+    </div>
+
+<a id="properties"></a>
+
+<div class="summary doc-property">
+<h2>Public Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-property" />
+    <col class="col-type" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="$extension">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#$extension-detail">$extension</a></td>
+        <td><a href="http://www.php.net/language.types.string">string</a></td>
+        <td>Extension of PHP files.</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+                <tr id="$scanner">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#$scanner-detail">$scanner</a></td>
+        <td><a href="lajax-projectscanner-scanner.html">lajax\projectscanner\Scanner</a></td>
+        <td>Object containing the detected language elements</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+    </table>
+</div>
+
+<div class="summary doc-property">
+<h2>Protected Properties</h2>
+
+<p><a href="#" class="toggle">Hide inherited properties</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-property" />
+    <col class="col-type" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Property</th><th>Type</th><th>Description</th><th>Defined By</th>
+</tr>
+            <tr id="$files">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#$files-detail">$files</a></td>
+        <td><a href="http://www.php.net/language.types.array">array</a></td>
+        <td>Array to store paths to project files.</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+        </table>
+</div>
+
+<a id="methods"></a>
+
+<div class="summary doc-method">
+<h2>Public Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+                <tr id="execute()">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#execute()-detail">execute()</a></td>
+        <td>Executes the scanning statement.</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+                        <tr id="scanProject()">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#scanProject()-detail">scanProject()</a></td>
+        <td>Scanning project filesistem.</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+        </table>
+</div>
+
+<div class="summary doc-method">
+<h2>Protected Methods</h2>
+
+<p><a href="#" class="toggle">Hide inherited methods</a></p>
+
+<table class="summary-table table table-striped table-bordered table-hover">
+<colgroup>
+    <col class="col-method" />
+    <col class="col-description" />
+    <col class="col-defined" />
+</colgroup>
+<tr>
+  <th>Method</th><th>Description</th><th>Defined By</th>
+</tr>
+        <tr id="checkTokens()">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#checkTokens()-detail">checkTokens()</a></td>
+        <td></td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+            <tr id="containsTranslator()">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#containsTranslator()-detail">containsTranslator()</a></td>
+        <td>Determines whether the file has any of the translators.</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+                <tr id="extractMessages()">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#extractMessages()-detail">extractMessages()</a></td>
+        <td>Extracts messages from a file</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+            <tr id="getLanguageItem()">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#getLanguageItem()-detail">getLanguageItem()</a></td>
+        <td>Returns language elements in the token buffer.</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+            <tr id="isValidCategory()">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#isValidCategory()-detail">isValidCategory()</a></td>
+        <td>Determines whether the category received as a parameter can be processed.</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+                <tr id="tokensEqual()">
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html#tokensEqual()-detail">tokensEqual()</a></td>
+        <td>Finds out if two PHP tokens are equal</td>
+        <td><a href="lajax-projectscanner-scanners-filescannerabstract.html">lajax\projectscanner\scanners\FileScannerAbstract</a></td>
+    </tr>
+    </table>
+</div>
+
+<a id="events"></a>
+
+<a id="constants"></a>
+
+<h2>Property Details</h2>
+
+<div class="property-doc">
+
+    <div class="detail-header h3" id="$extension-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#$extension-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $extension        <span class="detail-header-tag small">
+            public                                                property
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p>Extension of PHP files.</p>
+
+            </div>
+
+    <div class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="http://www.php.net/language.types.string">string</a></span> <a href="lajax-projectscanner-scanners-filescannerabstract.html#$extension-detail">$extension</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">'*.php'</span></div>
+
+
+    <div class="detail-header h3" id="$files-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#$files-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $files        <span class="detail-header-tag small">
+            protected            static                                    property
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p>Array to store paths to project files.</p>
+
+            </div>
+
+    <div class="signature"><span class="signature-defs">protected static</span> <span class="signature-type"><a href="http://www.php.net/language.types.array">array</a></span> <a href="lajax-projectscanner-scanners-filescannerabstract.html#$files-detail">$files</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;[</span><span style="color: #DD0000">'*.php'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;[],&nbsp;</span><span style="color: #DD0000">'*.js'&nbsp;</span><span style="color: #007700">=&gt;&nbsp;[]]</span></div>
+
+
+    <div class="detail-header h3" id="$scanner-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#$scanner-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        $scanner        <span class="detail-header-tag small">
+            public                                                property
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p>Object containing the detected language elements</p>
+
+            </div>
+
+    <div class="signature"><span class="signature-defs">public</span> <span class="signature-type"><a href="lajax-projectscanner-scanner.html">lajax\projectscanner\Scanner</a></span> <a href="lajax-projectscanner-scanners-filescannerabstract.html#$scanner-detail">$scanner</a> <span style="color: #0000BB"></span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">null</span></div>
+
+</div>
+<h2>Method Details</h2>
+
+<div class="method-doc">
+
+    <div class="detail-header h3" id="checkTokens()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#checkTokens()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        checkTokens()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p><strong></strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="lajax-projectscanner-scanners-filescannerabstract.html#checkTokens()-detail">checkTokens</a></strong> ( <span style="color: #0000BB">$options</span>, <span style="color: #0000BB">$translatorTokens</span>, <span style="color: #0000BB">$tokens</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$options</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"><p>Definition of the parameters required to identify language elements.</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$translatorTokens</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"><p>Translation identification</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$tokens</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"><p>Tokens to search through</p>
+</td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="containsTranslator()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#containsTranslator()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        containsTranslator()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p><strong>Determines whether the file has any of the translators.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">bool</span> <strong><a href="lajax-projectscanner-scanners-filescannerabstract.html#containsTranslator()-detail">containsTranslator</a></strong> ( <span style="color: #0000BB">$translators</span>, <span style="color: #0000BB">$file</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$translators</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a>[]</td>
+                  <td class="param-desc-col"><p>Array of translator patterns to search (for example: <code>['::t']</code>).</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$file</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Path of the file.</p>
+</td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="execute()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#execute()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        execute()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p><strong>Executes the scanning statement.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="lajax-projectscanner-scanners-filescannerabstract.html#execute()-detail">execute</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="extractMessages()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#extractMessages()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        extractMessages()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p><strong>Extracts messages from a file</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type">void</span> <strong><a href="lajax-projectscanner-scanners-filescannerabstract.html#extractMessages()-detail">extractMessages</a></strong> ( <span style="color: #0000BB">$fileName</span>, <span style="color: #0000BB">$options</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$fileName</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"><p>Name of the file to extract messages from</p>
+</td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$options</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a></td>
+                  <td class="param-desc-col"><p>Definition of the parameters required to identify language elements.
+example:</p>
+<pre><code class="hljs php">[
+     <span class="hljs-string">'translator'</span> =&gt; [<span class="hljs-string">'Yii::t'</span>, <span class="hljs-string">'Lx::t'</span>],
+     <span class="hljs-string">'begin'</span> =&gt; <span class="hljs-string">'('</span>,
+     <span class="hljs-string">'end'</span> =&gt; <span class="hljs-string">')'</span>
+]
+</code></pre>
+</td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="getLanguageItem()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#getLanguageItem()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        getLanguageItem()
+        <span class="detail-header-tag small">
+            protected            abstract                        method
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p><strong>Returns language elements in the token buffer.</strong></p>
+
+        <p>If there is no recognisable language element in the array, returns null.</p>
+
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected abstract</span> <span class="signature-type">void</span> <strong><a href="lajax-projectscanner-scanners-filescannerabstract.html#getLanguageItem()-detail">getLanguageItem</a></strong> ( <span style="color: #0000BB">$buffer</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$buffer</span></td>
+                  <td class="param-type-col"></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="isValidCategory()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#isValidCategory()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        isValidCategory()
+        <span class="detail-header-tag small">
+            protected                                    method
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p><strong>Determines whether the category received as a parameter can be processed.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="http://www.php.net/language.types.boolean">boolean</a></span> <strong><a href="lajax-projectscanner-scanners-filescannerabstract.html#isValidCategory()-detail">isValidCategory</a></strong> ( <span style="color: #0000BB">$category</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$category</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="scanProject()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#scanProject()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        scanProject()
+        <span class="detail-header-tag small">
+            public                                    method
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p><strong>Scanning project filesistem.</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">public</span> <span class="signature-type">void</span> <strong><a href="lajax-projectscanner-scanners-filescannerabstract.html#scanProject()-detail">scanProject</a></strong> ( )</td></tr>
+            </table>
+
+<!--	-->
+
+    <div class="detail-header h3" id="tokensEqual()-detail">
+        <a href="#" class="tool-link" title="go to top"><span class="glyphicon glyphicon-arrow-up"></span></a>
+        <a class="tool-link hash" href="lajax-projectscanner-scanners-filescannerabstract.html#tokensEqual()-detail" title="direct link to this method"><span class="glyphicon icon-hash"></span></a>
+        
+        tokensEqual()
+        <span class="detail-header-tag small">
+            protected                                    method
+                            (available since version 2.0.1)
+                    </span>
+    </div>
+
+    <div class="doc-description">
+        <p><strong>Finds out if two PHP tokens are equal</strong></p>
+
+        
+            </div>
+
+    <table class="detail-table table table-striped table-bordered table-hover">
+        <tr><td colspan="3" class="signature"><span class="signature-defs">protected</span> <span class="signature-type"><a href="http://www.php.net/language.types.boolean">boolean</a></span> <strong><a href="lajax-projectscanner-scanners-filescannerabstract.html#tokensEqual()-detail">tokensEqual</a></strong> ( <span style="color: #0000BB">$a</span>, <span style="color: #0000BB">$b</span> )</td></tr>
+                                    <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$a</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a>|<a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                            <tr>
+                  <td class="param-name-col"><span style="color: #0000BB">$b</span></td>
+                  <td class="param-type-col"><a href="http://www.php.net/language.types.array">array</a>|<a href="http://www.php.net/language.types.string">string</a></td>
+                  <td class="param-desc-col"></td>
+                </tr>
+                                                </table>
+
+<!--	-->
+</div>
+        </div>
+</div>
+
+<script type="text/javascript">
+    /*<![CDATA[*/
+    $("a.toggle").on('click', function () {
+        var $this = $(this);
+        if ($this.hasClass('properties-hidden')) {
+            $this.text($this.text().replace(/Show/,'Hide'));
+            $this.parents(".summary").find(".inherited").show();
+            $this.removeClass('properties-hidden');
+        } else {
+            $this.text($this.text().replace(/Hide/,'Show'));
+            $this.parents(".summary").find(".inherited").hide();
+            $this.addClass('properties-hidden');
+        }
+
+        return false;
+    });
+    /*
+     $(".sourceCode a.show").toggle(function () {
+     $(this).text($(this).text().replace(/show/,'hide'));
+     $(this).parents(".sourceCode").find("div.code").show();
+     },function () {
+     $(this).text($(this).text().replace(/hide/,'show'));
+     $(this).parents(".sourceCode").find("div.code").hide();
+     });
+     $("a.sourceLink").click(function () {
+     $(this).attr('target','_blank');
+     });
+     */
+    /*]]>*/
+</script>
+
+
+</div>
+
+<footer class="footer">
+        <p class="pull-right"><small>Page generated on Tue, 06 Sep 2016 18:24:05 +0000</small></p>
+    Powered by <a href="http://www.yiiframework.com/" rel="external">Yii Framework</a></footer>
+
+<script type="text/javascript">jQuery(document).ready(function () {
+    var shiftWindow = function () { scrollBy(0, -50) };
+    if (location.hash) setTimeout(shiftWindow, 1);
+    window.addEventListener("hashchange", shiftWindow);
+var element = document.createElement("script");
+element.src = "./jssearch.index.js";
+document.body.appendChild(element);
+
+var searchBox = $('#searchbox');
+
+// search when typing in search field
+searchBox.on("keyup", function(event) {
+    var query = $(this).val();
+
+    if (query == '' || event.which == 27) {
+        $('#search-resultbox').hide();
+        return;
+    } else if (event.which == 13) {
+        var selectedLink = $('#search-resultbox a.selected');
+        if (selectedLink.length != 0) {
+            document.location = selectedLink.attr('href');
+            return;
+        }
+    } else if (event.which == 38 || event.which == 40) {
+        $('#search-resultbox').show();
+
+        var selected = $('#search-resultbox a.selected');
+        if (selected.length == 0) {
+            $('#search-results').find('a').first().addClass('selected');
+        } else {
+            var next;
+            if (event.which == 40) {
+                next = selected.parent().next().find('a').first();
+            } else {
+                next = selected.parent().prev().find('a').first();
+            }
+            if (next.length != 0) {
+                var resultbox = $('#search-results');
+                var position = next.position();
+
+//              TODO scrolling is buggy and jumps around
+//                resultbox.scrollTop(Math.floor(position.top));
+//                console.log(position.top);
+
+                selected.removeClass('selected');
+                next.addClass('selected');
+            }
+        }
+
+        return;
+    }
+    $('#search-resultbox').show();
+    $('#search-results').html('<li><span class="no-results">No results</span></li>');
+
+    var result = jssearch.search(query);
+
+    if (result.length > 0) {
+        var i = 0;
+        var resHtml = '';
+
+        for (var key in result) {
+            if (i++ > 20) {
+                break;
+            }
+            resHtml = resHtml +
+            '<li><a href="' + result[key].file.u.substr(3) +'"><span class="title">' + result[key].file.t + '</span>' +
+            '<span class="description">' + result[key].file.d + '</span></a></li>';
+        }
+        $('#search-results').html(resHtml);
+    }
+});
+
+// hide the search results on ESC
+$(document).on("keyup", function(event) { if (event.which == 27) { $('#search-resultbox').hide(); } });
+// hide search results on click to document
+$(document).bind('click', function (e) { $('#search-resultbox').hide(); });
+// except the following:
+searchBox.bind('click', function(e) { e.stopPropagation(); });
+$('#search-resultbox').bind('click', function(e) { e.stopPropagation(); });
+
+});</script></body>
+</html>
